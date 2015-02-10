@@ -1,0 +1,9 @@
+[package]
+
+name = "Calculator"
+version = "0.0.1"
+authors = [ "Hugh Gallagher <hgallagher1993@gmail.com>" ]
+
+[[bin]]
+
+name = "Calculator"
