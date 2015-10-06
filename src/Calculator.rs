@@ -54,8 +54,8 @@ fn term_input() -> f64
    let input: f64 = match input.trim()
                                .parse()
    {
-    	 Ok(num) => num,
-    	 Err(_) => panic!(),
+      Ok(num) => num,
+      Err(_) => panic!(),
    };
    input
 }
