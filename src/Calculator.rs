@@ -41,13 +41,18 @@ fn main()
 fn term_input() -> f64
 {
 	let mut input = String::new();
-     io::stdin().read_line(&mut input) 			// .read_line() reads in a line of text up to \n. 
-              	 .ok() 						// .ok(), .expect() have to be called after
-              	 .expect("Failed to read line"); 	// .read_line() to explicitly handle an error
 
-     // Convert from string to float
-   	let input: f64 = match input.trim()		// .trim() removes white space
-   						   .parse() 		// parse input to a float
+	// .read_line() reads in a line of text up to \n.
+	// .ok(), .expect() have to be called after
+	// .read_line() to explicitly handle an error
+    io::stdin().read_line(&mut input)
+                .ok()
+                .expect("Failed to read line");
+
+    // Convert from string to float
+    // .trim() removes white space
+   	let input: f64 = match input.trim()
+                                .parse()
    	{
     		Ok(num) => num,
     		Err(_) => panic!(),
@@ -63,10 +68,12 @@ fn operation() -> char
    			 .ok()
    			 .expect("Failed to read line");
 
+    // .unwrap() handles errors and can
+    // quickly destructure <Option>'s
    	let mut operator: char = operator_string.chars()
-   									.next()
-   									.unwrap();	// .unwrap() handles errors and can
-   												// quickly destructure <Option>'s
+                                            .next()
+                                            .unwrap();	
+   												
 
    	operator
 }
@@ -85,3 +92,4 @@ fn sum_total(mut sum: f64, input_term: f64, operator: char) -> f64
 
    sum
 }
+
